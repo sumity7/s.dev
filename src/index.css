@@ -1,0 +1,196 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ------------------------------------------------------------------ */
+/*  Base                                                               */
+/* ------------------------------------------------------------------ */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+    scrollbar-color: #26324a #0a0e16;
+  }
+
+  body {
+    @apply bg-ink text-muted font-sans antialiased;
+    overflow-x: clip;
+    text-rendering: optimizeLegibility;
+    font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+  }
+
+  h1, h2, h3, h4 {
+    @apply font-display text-foreground;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  /* Keep anchored sections clear of the sticky navbar */
+  section[id] {
+    scroll-margin-top: 88px;
+  }
+
+  ::selection {
+    background: rgba(90, 140, 255, 0.28);
+    color: #fff;
+  }
+
+  :where(a, button, input, textarea, [tabindex]):focus-visible {
+    outline: 2px solid #5a8cff;
+    outline-offset: 3px;
+    border-radius: 8px;
+  }
+
+  ::-webkit-scrollbar {
+    width: 11px;
+    height: 11px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #0a0e16;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #26324a;
+    border-radius: 999px;
+    border: 3px solid #0a0e16;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #35456180;
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/*  Reusable pieces                                                    */
+/* ------------------------------------------------------------------ */
+@layer components {
+  .container-px {
+    width: 100%;
+    max-width: 1180px;
+    margin-inline: auto;
+    padding-inline: clamp(1.15rem, 4vw, 2.5rem);
+  }
+
+  /* A quiet card with an inset top highlight + soft depth (not the generic grey drop-shadow) */
+  .card {
+    @apply relative rounded-2xl border border-line bg-surface/70 shadow-card backdrop-blur-[2px];
+  }
+
+  .chip {
+    @apply inline-flex items-center gap-1.5 rounded-full border border-line bg-white/[0.03] px-3 py-1 text-[0.78rem] font-medium text-muted;
+  }
+
+  /* Code-comment style section marker — grounded in the subject (source code) */
+  .eyebrow {
+    @apply font-mono text-[0.82rem] font-medium text-accent/90;
+  }
+
+  .link-muted {
+    @apply text-muted transition-colors duration-200 hover:text-foreground;
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/*  Scroll reveal (JS toggles .is-visible via IntersectionObserver)    */
+/* ------------------------------------------------------------------ */
+.reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition:
+    opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* ------------------------------------------------------------------ */
+/*  Ambient background                                                 */
+/* ------------------------------------------------------------------ */
+.aurora {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+.aurora::before,
+.aurora::after {
+  content: '';
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(90px);
+  opacity: 0.5;
+}
+.aurora::before {
+  width: 42rem;
+  height: 42rem;
+  top: -14rem;
+  right: -8rem;
+  background: radial-gradient(circle at center, rgba(90, 140, 255, 0.5), transparent 62%);
+}
+.aurora::after {
+  width: 34rem;
+  height: 34rem;
+  top: 10rem;
+  left: -12rem;
+  background: radial-gradient(circle at center, rgba(246, 179, 92, 0.28), transparent 62%);
+}
+
+/* ------------------------------------------------------------------ */
+/*  Syntax highlighting for the hero code window                       */
+/* ------------------------------------------------------------------ */
+.tok-com { color: #5b6577; font-style: italic; }
+.tok-key { color: #7aa2ff; }
+.tok-fn  { color: #f6b35c; }
+.tok-prop{ color: #8fd3e8; }
+.tok-str { color: #9fd59b; }
+.tok-num { color: #e5b567; }
+.tok-punc{ color: #8892a6; }
+
+/* Code writes itself in, one line at a time (single load moment) */
+@keyframes code-line-in {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: none; }
+}
+.code-line {
+  opacity: 0;
+  animation: code-line-in 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* One-time hero entrance */
+@keyframes hero-rise {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: none; }
+}
+.hero-rise {
+  opacity: 0;
+  animation: hero-rise 0.75s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* ------------------------------------------------------------------ */
+/*  Reduced motion                                                     */
+/* ------------------------------------------------------------------ */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  .aurora::before,
+  .aurora::after {
+    opacity: 0.4;
+  }
+}
