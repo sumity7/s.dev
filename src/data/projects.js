@@ -9,7 +9,7 @@ const GITHUB_PROFILE = 'https://github.com/sumity7'
 const links = {
   codefusion: {
     code: 'https://github.com/sumity7/codefusion',
-    demo: 'https://codefusionnextgen.in',
+    demo: 'https://codefusion.nextgenfusion.in',
   },
   library: {
     code: 'https://github.com/sumity7/student-library-management-system',

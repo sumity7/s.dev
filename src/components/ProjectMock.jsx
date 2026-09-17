@@ -25,7 +25,7 @@ function rgba(hex, a) {
 }
 
 const labels = {
-  codefusion: 'codefusionnextgen.in',
+  codefusion: 'codefusion.nextgenfusion.in',
   library: 'library-app / seats',
   autogreet: 'autogreet / scheduler',
   nova: 'nova-store / shop',
