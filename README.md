@@ -3,7 +3,7 @@
 A production-ready personal portfolio built with **Vite + React + Tailwind CSS**.
 Dark, developer-focused design, fully responsive, SEO-ready and deployable to Vercel in one click.
 
-Live: https://sumitydev.vercel.app/
+Live: (https://syadav.vercel.app/)
 
 Positioning is **MERN Full Stack Developer** throughout. Sections run: Hero → About → Skills →
 Projects → Experience → Currently learning & exploring → Education → Certifications → Résumé →
