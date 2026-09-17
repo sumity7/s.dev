@@ -27,12 +27,12 @@ export default function SocialLinks({ size = 'md', className = '' }) {
               title={label}
               target={external ? '_blank' : undefined}
               rel={external ? 'noreferrer noopener' : undefined}
-              className={`group grid ${dim} place-items-center rounded-xl border border-line bg-white/[0.02] text-muted transition-all duration-200 hover:-translate-y-0.5 hover:border-accent/50 hover:text-foreground`}
+              className={`group grid ${dim} place-items-center rounded-xl border border-line bg-white/[0.02] text-muted transition-all duration-300 hover:-translate-y-1 hover:border-accent/50 hover:bg-accent/[0.08] hover:text-foreground hover:shadow-[0_12px_26px_-12px_rgba(90,140,255,0.6)]`}
             >
               <Icon
                 size={icon}
                 aria-hidden="true"
-                className="transition-transform duration-200 group-hover:scale-110"
+                className="transition-transform duration-300 group-hover:-rotate-6 group-hover:scale-110"
               />
             </a>
           </li>

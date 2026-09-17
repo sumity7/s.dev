@@ -7,6 +7,10 @@
 const GITHUB_PROFILE = 'https://github.com/sumity7'
 
 const links = {
+  codefusion: {
+    code: 'https://github.com/sumity7/codefusion',
+    demo: 'https://codefusionnextgen.in',
+  },
   library: {
     code: 'https://github.com/sumity7/student-library-management-system',
     demo: 'https://student-library-management-system-ten.vercel.app/',
@@ -41,6 +45,36 @@ const links = {
 // `spotlight: true` becomes the large featured card.
 export const projects = [
   {
+    id: 'codefusion',
+    name: 'CodeFusion',
+    tagline: 'Full-stack UI component marketplace',
+    description:
+      'A full-stack platform where developers can discover, preview and access ready-to-use premium UI components and digital resources, with search, categories, live previews, authentication, wishlist, subscriptions and protected premium content.',
+    highlights: [
+      'Live UI previews with category-based browsing, search and filtering',
+      'Authentication, wishlist and subscription/token-based access to protected premium content',
+      'Admin/product management with a responsive light/dark UI and smooth animations',
+    ],
+    tech: [
+      'React 19',
+      'Vite',
+      'Tailwind CSS',
+      'Framer Motion',
+      'Redux Toolkit',
+      'Axios',
+      'Node.js',
+      'Express.js',
+      'MongoDB',
+      'Mongoose',
+      'JWT',
+      'Docker',
+    ],
+    accent: '#B073FF',
+    mock: 'codefusion',
+    links: links.codefusion,
+    spotlight: true,
+  },
+  {
     id: 'library',
     name: 'Student Library Management System',
     tagline: 'Full-stack library & seat-booking platform with payments',
@@ -55,7 +89,7 @@ export const projects = [
     accent: '#5A8CFF',
     mock: 'library',
     links: links.library,
-    spotlight: true,
+    spotlight: false,
   },
   {
     id: 'nova',

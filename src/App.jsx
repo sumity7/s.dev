@@ -10,8 +10,11 @@ import Certifications from './components/Certifications'
 import ResumeCta from './components/ResumeCta'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
+import { useCardSpotlight } from './hooks/useCardSpotlight'
 
 export default function App() {
+  useCardSpotlight()
+
   return (
     <>
       <a

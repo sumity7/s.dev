@@ -6,9 +6,12 @@ import {
   FiCode,
   FiCpu,
   FiCreditCard,
+  FiHeart,
+  FiLock,
   FiMail,
   FiMapPin,
   FiPlus,
+  FiSearch,
   FiShoppingCart,
   FiStar,
 } from 'react-icons/fi'
@@ -22,6 +25,7 @@ function rgba(hex, a) {
 }
 
 const labels = {
+  codefusion: 'codefusionnextgen.in',
   library: 'library-app / seats',
   autogreet: 'autogreet / scheduler',
   nova: 'nova-store / shop',
@@ -42,6 +46,73 @@ function Chrome({ label }) {
       <span className="ml-1 flex-1 truncate rounded-md bg-white/[0.06] px-2 py-0.5 text-center font-mono text-[0.58rem] text-white/45">
         {label}
       </span>
+    </div>
+  )
+}
+
+function CodefusionBody({ accent }) {
+  const cards = [
+    { premium: true, liked: true },
+    { premium: false, liked: false },
+    { premium: true, liked: false },
+  ]
+  return (
+    <div className="flex h-full flex-col gap-2">
+      <div className="flex items-center gap-2 rounded-lg border border-white/10 bg-white/[0.03] px-2.5 py-1.5">
+        <FiSearch size={11} className="text-white/40" />
+        <span className="text-[0.58rem] text-white/40">Search components…</span>
+      </div>
+      <div className="flex gap-1.5">
+        {['All', 'Cards', 'Navbars'].map((t, i) => (
+          <span
+            key={t}
+            className="rounded-full px-2 py-0.5 text-[0.52rem] font-medium"
+            style={
+              i === 0
+                ? { background: rgba(accent, 0.2), color: accent }
+                : { background: 'rgba(255,255,255,0.05)', color: 'rgba(255,255,255,0.55)' }
+            }
+          >
+            {t}
+          </span>
+        ))}
+      </div>
+      <div className="grid grid-cols-3 gap-1.5">
+        {cards.map((c, i) => (
+          <div key={i} className="relative rounded-lg border border-white/10 bg-white/[0.02] p-1.5">
+            <div
+              className="mb-1.5 h-8 rounded-md"
+              style={{ background: `linear-gradient(135deg, ${rgba(accent, 0.4)}, ${rgba(accent, 0.08)})` }}
+            />
+            <div className="flex items-center justify-between">
+              {c.premium ? (
+                <span
+                  className="inline-flex items-center gap-0.5 rounded px-1 py-0.5 text-[0.48rem] font-semibold"
+                  style={{ background: rgba(accent, 0.18), color: accent }}
+                >
+                  <FiLock size={7} /> PRO
+                </span>
+              ) : (
+                <span className="text-[0.48rem] text-white/40">Free</span>
+              )}
+              <FiHeart
+                size={9}
+                className={c.liked ? '' : 'text-white/30'}
+                style={c.liked ? { color: accent, fill: accent } : undefined}
+              />
+            </div>
+          </div>
+        ))}
+      </div>
+      <div className="mt-auto flex items-center justify-between rounded-md bg-white/[0.04] px-2 py-1">
+        <span className="text-[0.55rem] text-white/60">Pro plan · unlocked</span>
+        <span
+          className="inline-flex items-center gap-1 rounded-md px-2 py-1 text-[0.55rem] font-semibold text-[#0a0e16]"
+          style={{ background: accent }}
+        >
+          <FiCheck size={10} /> Active
+        </span>
+      </div>
     </div>
   )
 }
@@ -384,6 +455,7 @@ function FoodBody({ accent }) {
 }
 
 const bodies = {
+  codefusion: CodefusionBody,
   library: LibraryBody,
   autogreet: AutogreetBody,
   nova: NovaBody,

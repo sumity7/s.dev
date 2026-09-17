@@ -27,7 +27,7 @@ export default function Skills() {
                   {group.items.map(({ name, Icon, color, level }) => (
                     <li key={name}>
                       <span
-                        className="group inline-flex items-center gap-2 rounded-xl border border-line bg-white/[0.02] px-3 py-2 text-sm text-muted transition-all duration-200 hover:-translate-y-0.5 hover:border-line-strong hover:text-foreground"
+                        className="group inline-flex items-center gap-2 rounded-xl border border-line bg-white/[0.02] px-3 py-2 text-sm text-muted transition-all duration-300 hover:-translate-y-1 hover:border-line-strong hover:text-foreground hover:shadow-[0_10px_22px_-12px_var(--c)]"
                         style={{ '--c': color }}
                       >
                         <Icon

@@ -24,11 +24,11 @@ export default function Learning() {
           {learningItems.map(({ name, stage, Icon, color, note }, i) => (
             <Reveal as="li" key={name} delay={(i % 3) * 80}>
               <article
-                className="card group h-full p-6 transition-colors duration-300 hover:border-line-strong"
+                className="card group h-full p-6"
                 style={{ '--c': color }}
               >
                 <div className="flex items-start justify-between gap-3">
-                  <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl border border-line bg-white/[0.03] text-[1.15rem] text-[#aeb8cc] transition-all duration-200 group-hover:scale-105 group-hover:[color:var(--c)]">
+                  <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl border border-line bg-white/[0.03] text-[1.15rem] text-[#aeb8cc] transition-all duration-300 group-hover:-rotate-6 group-hover:scale-110 group-hover:[color:var(--c)] group-hover:shadow-[0_10px_22px_-10px_var(--c)]">
                     <Icon aria-hidden="true" />
                   </span>
                   <span className="rounded-md border border-line bg-white/[0.04] px-2 py-1 font-mono text-[0.65rem] text-faint">

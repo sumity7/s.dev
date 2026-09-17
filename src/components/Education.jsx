@@ -12,7 +12,7 @@ export default function Education() {
         <SectionHeading eyebrow="education" title="Academic background" />
 
         <div className="mt-10 grid gap-6 lg:grid-cols-[1.15fr_0.85fr]">
-          <Reveal>
+          <Reveal direction="left">
             <article className="card relative h-full overflow-hidden p-7 sm:p-8">
               <div
                 aria-hidden="true"
@@ -47,7 +47,7 @@ export default function Education() {
             </article>
           </Reveal>
 
-          <Reveal delay={120}>
+          <Reveal direction="right" delay={120}>
             <div className="card h-full divide-y divide-line p-2">
               {secondary.map((item) => (
                 <div key={item.degree} className="px-5 py-5">

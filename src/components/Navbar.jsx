@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from 'react'
 import { FiDownload, FiMenu, FiX } from 'react-icons/fi'
 import { navLinks, site } from '../data/site'
 import { useActiveSection } from '../hooks/useActiveSection'
+import { useScrollProgress } from '../hooks/useScrollProgress'
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
@@ -9,6 +10,7 @@ export default function Navbar() {
 
   const ids = useMemo(() => navLinks.map((l) => l.id), [])
   const active = useActiveSection(ids)
+  const progress = useScrollProgress()
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12)
@@ -33,13 +35,20 @@ export default function Navbar() {
           : 'border-b border-transparent bg-transparent'
       }`}
     >
+      {/* Scroll progress */}
+      <div
+        aria-hidden="true"
+        className="absolute inset-x-0 bottom-0 h-[2px] origin-left bg-gradient-to-r from-accent via-accent-soft to-amber transition-transform duration-150 ease-out"
+        style={{ transform: `scaleX(${progress})` }}
+      />
+
       <nav
         aria-label="Primary"
         className="container-px flex h-[68px] items-center justify-between"
       >
         {/* Wordmark */}
         <a href="#home" className="group flex items-center gap-2.5" aria-label="Sumit Yadav — home">
-          <span className="grid h-9 w-9 place-items-center rounded-xl bg-gradient-to-br from-accent to-amber p-[1.5px]">
+          <span className="grid h-9 w-9 place-items-center rounded-xl bg-gradient-to-br from-accent to-amber p-[1.5px] transition-transform duration-300 group-hover:rotate-6 group-hover:scale-110">
             <span className="grid h-full w-full place-items-center rounded-[10px] bg-ink font-display text-sm font-bold text-foreground">
               SY
             </span>

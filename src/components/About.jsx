@@ -45,7 +45,7 @@ export default function About() {
         <div className="mt-10 grid gap-6 lg:grid-cols-12">
           {/* Portrait + quick facts */}
           <div className="grid gap-6 sm:grid-cols-2 lg:col-span-5 lg:grid-cols-1">
-            <Reveal>
+            <Reveal direction="left">
               <figure className="card group relative overflow-hidden p-0">
                 <div
                   aria-hidden="true"
@@ -77,7 +77,7 @@ export default function About() {
               </figure>
             </Reveal>
 
-            <Reveal delay={120}>
+            <Reveal direction="left" delay={120}>
               <dl className="card h-full divide-y divide-line p-2">
                 {facts.map(({ Icon, label, value }) => (
                   <div key={label} className="flex items-center gap-3.5 px-4 py-[0.8rem]">
@@ -95,7 +95,7 @@ export default function About() {
           </div>
 
           {/* Narrative */}
-          <Reveal className="lg:col-span-7" delay={80}>
+          <Reveal className="lg:col-span-7" direction="right" delay={80}>
             <div className="card h-full p-7 sm:p-8">
               <div className="space-y-4 text-[1.02rem] leading-relaxed text-muted">
                 <p>
@@ -145,7 +145,7 @@ export default function About() {
         <div className="mt-6 grid grid-cols-2 gap-4 sm:gap-5 lg:grid-cols-4">
           {stats.map((stat, i) => (
             <Reveal key={stat.label} delay={i * 80}>
-              <div className="card group h-full p-6 transition-colors duration-300 hover:border-accent/40">
+              <div className="card group h-full p-6 hover:border-accent/40">
                 <div className="font-display text-4xl font-bold tracking-tight text-foreground sm:text-[2.7rem]">
                   {stat.value}
                 </div>

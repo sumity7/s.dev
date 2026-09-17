@@ -34,11 +34,11 @@ export default function Certifications() {
               <Reveal as="li" key={cert.title} delay={(i % 3) * 90} className="h-full">
                 <Wrapper
                   {...wrapperProps}
-                  className="card group flex h-full flex-col p-6 transition-colors duration-300 hover:border-line-strong"
+                  className="card group flex h-full flex-col p-6"
                   style={{ '--c': color }}
                 >
                   <span
-                    className="grid h-11 w-11 place-items-center rounded-xl border border-line transition-transform duration-300 group-hover:scale-105"
+                    className="grid h-11 w-11 place-items-center rounded-xl border border-line transition-all duration-300 group-hover:-rotate-6 group-hover:scale-110 group-hover:shadow-[0_10px_22px_-10px_var(--c)]"
                     style={{ background: `${color}1f`, color }}
                   >
                     <Icon size={20} aria-hidden="true" />

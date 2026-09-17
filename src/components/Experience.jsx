@@ -21,7 +21,7 @@ export default function Experience() {
                 aria-hidden="true"
                 className="absolute -left-[calc(1.5rem+5px)] top-7 h-2.5 w-2.5 rounded-full bg-accent ring-4 ring-ink sm:-left-[calc(2rem+5px)]"
               />
-              <div className="card p-6 transition-colors duration-300 hover:border-line-strong sm:p-7">
+              <div className="card p-6 sm:p-7">
                 <div className="flex flex-wrap items-start justify-between gap-x-6 gap-y-2">
                   <div>
                     <h3 className="font-display text-xl font-semibold tracking-tight text-foreground">

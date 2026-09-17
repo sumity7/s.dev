@@ -24,7 +24,7 @@ function Actions({ project, size = 'sm' }) {
           target="_blank"
           rel="noreferrer noopener"
           aria-label={`Open the live demo of ${name}`}
-          className={`inline-flex items-center gap-2 rounded-xl bg-accent ${pad} font-semibold text-ink transition-all duration-200 hover:-translate-y-0.5 hover:bg-accent-soft`}
+          className={`btn-shine inline-flex items-center gap-2 rounded-xl bg-accent ${pad} font-semibold text-ink transition-all duration-200 hover:-translate-y-0.5 hover:bg-accent-soft hover:shadow-[0_14px_32px_-14px_rgba(90,140,255,0.9)] active:scale-[0.97]`}
         >
           <FiArrowUpRight size={16} />
           Live demo
@@ -35,7 +35,7 @@ function Actions({ project, size = 'sm' }) {
         target="_blank"
         rel="noreferrer noopener"
         aria-label={`View the source code of ${name} on GitHub`}
-        className={`inline-flex items-center gap-2 rounded-xl border border-line-strong bg-white/[0.03] ${pad} font-medium text-foreground transition-all duration-200 hover:-translate-y-0.5 hover:border-accent/60 hover:bg-white/[0.06]`}
+        className={`btn-shine inline-flex items-center gap-2 rounded-xl border border-line-strong bg-white/[0.03] ${pad} font-medium text-foreground transition-all duration-200 hover:-translate-y-0.5 hover:border-accent/60 hover:bg-white/[0.06] active:scale-[0.97]`}
       >
         <FiGithub size={16} />
         Source code
@@ -54,7 +54,7 @@ export default function ProjectCard({ project, variant = 'standard' }) {
 
   if (spotlight) {
     return (
-      <article className="card group relative overflow-hidden p-6 transition-colors duration-300 hover:border-line-strong sm:p-8">
+      <article className="card group relative overflow-hidden p-6 sm:p-8">
         <div
           aria-hidden="true"
           className="pointer-events-none absolute -right-24 -top-24 h-64 w-64 rounded-full opacity-40 blur-3xl transition-opacity duration-500 group-hover:opacity-70"
@@ -112,7 +112,7 @@ export default function ProjectCard({ project, variant = 'standard' }) {
   }
 
   return (
-    <article className="card group flex h-full flex-col overflow-hidden transition-colors duration-300 hover:border-line-strong">
+    <article className="card group flex h-full flex-col overflow-hidden">
       <div className="relative overflow-hidden border-b border-line">
         <div className="aspect-[16/10] transition-transform duration-500 ease-out group-hover:scale-[1.04]">
           <ProjectMock type={mock} accent={accent} />

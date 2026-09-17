@@ -140,7 +140,7 @@ export default function Contact() {
 
         <div className="mt-10 grid gap-6 lg:grid-cols-[0.85fr_1.15fr]">
           {/* Details */}
-          <Reveal>
+          <Reveal direction="left">
             <div className="card flex h-full flex-col p-7 sm:p-8">
               <h3 className="text-[1.05rem] font-semibold text-foreground">Get in touch</h3>
               <p className="mt-3 leading-relaxed text-muted">
@@ -179,7 +179,7 @@ export default function Contact() {
 
                 <a
                   href={mailtoHref()}
-                  className="flex w-full items-center justify-center gap-2 rounded-xl bg-accent px-5 py-3 text-sm font-semibold text-ink shadow-[0_12px_34px_-14px_rgba(90,140,255,0.9)] transition-all duration-200 hover:-translate-y-0.5 hover:bg-accent-soft"
+                  className="btn-shine flex w-full items-center justify-center gap-2 rounded-xl bg-accent px-5 py-3 text-sm font-semibold text-ink shadow-[0_12px_34px_-14px_rgba(90,140,255,0.9)] transition-all duration-200 hover:-translate-y-0.5 hover:bg-accent-soft active:scale-[0.97]"
                 >
                   <FiMail size={16} aria-hidden="true" />
                   Email me directly
@@ -215,7 +215,7 @@ export default function Contact() {
           </Reveal>
 
           {/* Form */}
-          <Reveal delay={120}>
+          <Reveal direction="right" delay={120}>
             <form
               onSubmit={onSubmit}
               noValidate
@@ -314,7 +314,7 @@ export default function Contact() {
                 <button
                   type="submit"
                   disabled={status === 'submitting'}
-                  className="inline-flex items-center justify-center gap-2 rounded-xl bg-accent px-6 py-3 text-[0.95rem] font-semibold text-ink shadow-[0_12px_34px_-14px_rgba(90,140,255,0.9)] transition-all duration-200 hover:-translate-y-0.5 hover:bg-accent-soft disabled:translate-y-0 disabled:cursor-not-allowed disabled:opacity-60"
+                  className="btn-shine inline-flex items-center justify-center gap-2 rounded-xl bg-accent px-6 py-3 text-[0.95rem] font-semibold text-ink shadow-[0_12px_34px_-14px_rgba(90,140,255,0.9)] transition-all duration-200 hover:-translate-y-0.5 hover:bg-accent-soft active:scale-[0.97] disabled:translate-y-0 disabled:cursor-not-allowed disabled:opacity-60 disabled:active:scale-100"
                 >
                   {status === 'submitting' ? (
                     <FiLoader size={17} className="animate-spin" aria-hidden="true" />
